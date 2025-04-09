@@ -40,9 +40,10 @@ image:
 # -- Desired number of pods.
 replicas: 1
 
+# -- Spark history server configurations.
 sparkConf:
   # The URL to the directory containing application event logs to load.
-  spark.history.fs.logDirectory: file:///tmp/spark-events
+  # spark.history.fs.logDirectory: file:///tmp/spark-events
 
   # How often to reload log data from storage.
   # spark.history.fs.update.interval: 10

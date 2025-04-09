@@ -1,0 +1,68 @@
+{{ template "chart.header" . }}
+
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.homepageLine" . }}
+
+## Introduction
+
+This chart bootstraps a [Spark history server]({{template "chart.homepage" . }}) deployment using the [Helm](https://helm.sh) package manager.
+
+## Prerequisites
+
+- Helm >= 3
+- Kubernetes >= 1.16
+
+## Usage
+
+### Add Helm Repo
+
+```shell
+helm repo add --force-update spark-history-server https://Chenyi015.github.io/spark-history-server
+```
+
+See [helm repo](https://helm.sh/docs/helm/helm_repo) for command documentation.
+
+### Install the chart
+
+```shell
+helm install [RELEASE_NAME] spark-history-server/spark-history-server
+```
+
+For example, if you want to create a release with name `spark-history-server` in the `spark` namespace:
+
+```shell
+helm install spark-history-server spark-history-server/spark-history-server \
+    --namespace spark \
+    --create-namespace
+```
+
+Note that by passing the `--create-namespace` flag to the `helm install` command, `helm` will create the release namespace if it does not exist.
+
+See [helm install](https://helm.sh/docs/helm/helm_install) for command documentation.
+
+### Upgrade the chart
+
+```shell
+helm upgrade [RELEASE_NAME] spark-history-server/spark-history-server [flags]
+```
+
+See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade) for command documentation.
+
+### Uninstall the chart
+
+```shell
+helm uninstall [RELEASE_NAME]
+```
+
+This removes all the Kubernetes resources associated with the chart and deletes the release, except for the `crds`, those will have to be removed manually.
+
+See [helm uninstall](https://helm.sh/docs/helm/helm_uninstall) for command documentation.
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "chart.maintainersSection" . }}
